@@ -80,19 +80,19 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = () => {
       key: 'logout',
     },
   ];
+//   <HeaderDropdown
+//   menu={{
+//     items,
+//   }}
+//   disabled={APP_TARGET === 'inner'}
+// >
+//   <span className={`${styles.action} ${styles.account}`}>
+//     <TMEAvatar className={styles.avatar} size="small" staffName={currentUser.staffName} />
+//     <span className={styles.userName}>{currentUser.staffName}</span>
+//   </span>
+// </HeaderDropdown>
   return (
     <>
-      <HeaderDropdown
-        menu={{
-          items,
-        }}
-        disabled={APP_TARGET === 'inner'}
-      >
-        <span className={`${styles.action} ${styles.account}`}>
-          <TMEAvatar className={styles.avatar} size="small" staffName={currentUser.staffName} />
-          <span className={styles.userName}>{currentUser.staffName}</span>
-        </span>
-      </HeaderDropdown>
       <ChangePasswordModal ref={changePasswordModalRef} />
       <AccessTokensModal ref={accessTokensModalRef} />
     </>
