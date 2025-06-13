@@ -1,7 +1,7 @@
 import { CHART_BLUE_COLOR, CHART_SECONDARY_COLOR, PREFIX_CLS } from '../../../common/constants';
 import { MsgDataType } from '../../../common/type';
 import {
-  formatByDecimalPlaces,
+  formatByDataFormatType,
   getChartLightenColor,
   getFormattedValue,
 } from '../../../utils/utils';
@@ -108,7 +108,7 @@ const BarChart: React.FC<Props> = ({
             return value === 0
               ? 0
               : metricField.dataFormatType === 'percent'
-              ? `${formatByDecimalPlaces(metricField.dataFormat?.needMultiply100 ? +value * 100 : value, metricField.dataFormat?.decimalPlaces || 2)}%`
+              ? formatByDataFormatType(value, metricField.dataFormatType, metricField.dataFormat)
               : getFormattedValue(value);
           },
         },
@@ -129,10 +129,7 @@ const BarChart: React.FC<Props> = ({
                     ? '-'
                     : metricField.dataFormatType === 'percent' ||
                       metricField.dataFormatType === 'decimal'
-                    ? `${formatByDecimalPlaces(
-                        metricField.dataFormat?.needMultiply100 ? +item.value * 100 : item.value,
-                        metricField.dataFormat?.decimalPlaces || 2
-                      )}${metricField.dataFormatType === 'percent' ? '%' : ''}`
+                    ? formatByDataFormatType(item.value, metricField.dataFormatType, metricField.dataFormat)
                     : getFormattedValue(item.value)
                 }</span></div>`
             )
@@ -165,7 +162,7 @@ const BarChart: React.FC<Props> = ({
             return value === 0
               ? 0
               : metricField.dataFormatType === 'percent'
-              ? `${formatByDecimalPlaces(metricField.dataFormat?.needMultiply100 ? +value * 100 : value, metricField.dataFormat?.decimalPlaces || 2)}%`
+              ? formatByDataFormatType(value, metricField.dataFormatType, metricField.dataFormat)
               : getFormattedValue(value);
           },
         },
