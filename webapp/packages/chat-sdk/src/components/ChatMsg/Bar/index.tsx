@@ -32,7 +32,7 @@ type Props = {
 
 const BarChart: React.FC<Props> = ({
   data,
-  question="",
+  question = "",
   triggerResize,
   loading,
   metricField,
@@ -47,6 +47,20 @@ const BarChart: React.FC<Props> = ({
     queryColumns?.find(column => column.showType === 'CATEGORY')?.bizName || '';
   const metricColumn = queryColumns?.find(column => column.showType === 'NUMBER');
   const metricColumnName = metricColumn?.bizName || '';
+
+  const prefixCls = `${PREFIX_CLS}-bar`;
+
+  // 确保 React Hooks 在组件的顶层以相同的顺序调用
+  const { downloadChartAsImage } = useExportByEcharts({
+    instanceRef,
+    question,
+  });
+
+  const { register } = useContext(ChartItemContext);
+
+  useEffect(() => {
+    register('downloadChartAsImage', downloadChartAsImage);
+  }, [register, downloadChartAsImage]);
 
   const renderChart = () => {
     let instanceObj: any;
@@ -184,17 +198,6 @@ const BarChart: React.FC<Props> = ({
       />
     );
   }
-
-  const prefixCls = `${PREFIX_CLS}-bar`;
-
-  const { downloadChartAsImage } = useExportByEcharts({
-    instanceRef,
-    question,
-  });
-
-  const { register } = useContext(ChartItemContext);
-
-  register('downloadChartAsImage', downloadChartAsImage);
 
   return (
     <div>

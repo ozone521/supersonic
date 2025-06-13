@@ -140,6 +140,7 @@ export const layout: RunTimeLayoutConfig = (params) => {
     disableContentMargin: true,
     // menuHeaderRender: undefined,
     childrenRender: (dom) => {
+      const displayTestFlag = true;
       return (
         <ConfigProvider theme={configProviderTheme}>
           <div
@@ -149,7 +150,7 @@ export const layout: RunTimeLayoutConfig = (params) => {
           >
             {/* <AppPage dom={dom} /> */}
             {dom}
-            {history.location.pathname !== '/chat' && !isMobile && (
+            {history.location.pathname !== '/chat' && !isMobile && !displayTestFlag && (
               <Copilot token={getToken() || ''} isDeveloper />
             )}
           </div>
