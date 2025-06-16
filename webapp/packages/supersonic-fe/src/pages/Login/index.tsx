@@ -6,7 +6,7 @@ import RegisterForm from './components/RegisterForm';
 // import ForgetPwdForm from './components/ForgetPwdForm';
 import { ROUTE_AUTH_CODES } from '../../../config/routes';
 import S2Icon, { ICON } from '@/components/S2Icon';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'antd/lib/form/Form';
 import type { RegisterFormDetail } from './components/types';
 import { postUserLogin, userRegister } from './services';
@@ -53,6 +53,11 @@ const LoginPage: React.FC = () => {
     await loginDone({ ...content, password: encryptPassword(content.password, encryptKey) });
   };
 
+  useEffect(() => {
+    // 在组件挂载后自动登录
+    handleLogin();
+  }, []); // 空依赖数组确保只在组件挂载时执行一次
+
   // 处理注册弹窗确定按钮
   const handleRegister = async (values: RegisterFormDetail) => {
     const enCodeValues = { ...values, password: encryptPassword(values.password, encryptKey) };
@@ -89,9 +94,9 @@ const LoginPage: React.FC = () => {
       <div className={styles.content}>
         <div className={styles.formContent}>
           <div className={styles.formBox}>
-            <Form form={form} labelCol={{ span: 6 }} colon={false}>
+            <Form form={form} labelCol={{ span: 6 }} colon={false} initialValues={{ name: 'admin', password: 'yjdp@2025' }}>
               <div className={styles.loginMain}>
-                <h3 className={styles.title}>
+                {/* <h3 className={styles.title}>
                   <Space>
                     <S2Icon
                       icon={ICON.iconlogobiaoshi}
@@ -101,7 +106,7 @@ const LoginPage: React.FC = () => {
                     />
                     <div>SuperSonic</div>
                   </Space>
-                </h3>
+                </h3> */}
                 <Item name="name" rules={[{ required: true }]} label="">
                   <Input size="large" placeholder="用户名: admin" prefix={<UserOutlined />} />
                 </Item>

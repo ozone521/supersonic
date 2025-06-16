@@ -378,6 +378,7 @@ const Chat: ForwardRefRenderFunction<any, Props> = (
   };
 
   const chatClass = classNames(styles.chat, {
+    'showchatclassss':true,
     [styles.mobile]: isMobile,
     [styles.historyVisible]: historyVisible,
   });
