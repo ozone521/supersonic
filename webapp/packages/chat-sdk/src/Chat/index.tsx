@@ -69,7 +69,7 @@ const Chat: ForwardRefRenderFunction<any, Props> = (
   const [agentList, setAgentList] = useState<AgentType[]>([]);
   const [currentAgent, setCurrentAgent] = useState<AgentType>();
   const [mobileAgentsVisible, setMobileAgentsVisible] = useState(false);
-  const [agentListVisible, setAgentListVisible] = useState(true);
+  const [agentListVisible, setAgentListVisible] = useState(false); // 默认隐藏智能助理选择 之前为true
   const [showCaseVisible, setShowCaseVisible] = useState(false);
 
   const [isSimpleMode, setIsSimpleMode] = useState<boolean>(false);
