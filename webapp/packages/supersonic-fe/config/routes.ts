@@ -213,7 +213,7 @@ const ROUTES = [
   },
   {
     path: '/',
-    redirect: '/chat', // 原本先跳转model
+    redirect: '/chat?agentId=6', // 原本先跳转model
   },
   {
     path: '/401',

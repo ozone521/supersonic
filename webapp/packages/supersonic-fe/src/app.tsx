@@ -145,7 +145,7 @@ export const layout: RunTimeLayoutConfig = (params) => {
         <ConfigProvider theme={configProviderTheme}>
           <div
             style={{
-              height: location.pathname.includes('chat') ? 'calc(100vh - 56px)' : undefined,
+              height: location.pathname.includes('chat') ? 'calc(100vh)' : undefined, // height: location.pathname.includes('chat') ? 'calc(100vh - 56px)' : undefined
             }}
           >
             {/* <AppPage dom={dom} /> */}

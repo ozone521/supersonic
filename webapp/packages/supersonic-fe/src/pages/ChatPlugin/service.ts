@@ -37,7 +37,7 @@ export function getDataSetSchema(dataSetId: number) {
 }
 
 
-# chatBI API
-location /chatsuperapi {
-   proxy_pass http://172.21.42.220:9080/api;
-}
+// # chatBI API
+// location /chatsuperapi {
+//    proxy_pass http://172.21.42.220:9080/api;
+// }
