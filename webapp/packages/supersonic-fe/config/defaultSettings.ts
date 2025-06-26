@@ -13,15 +13,15 @@ const Settings: DefaultSetting = {
   // fixSiderbar: true,
   colorWeak: false,
   title: '',
-  pwa: false,
+  pwa: false
   // 不展示顶栏
-  headerRender: false,
-  // 不展示页脚
-  footerRender: false,
-  // 不展示菜单
-  menuRender: false,
-  // 不展示菜单顶栏
-  menuHeaderRender: false,
+  // headerRender: false,
+  // // 不展示页脚
+  // footerRender: false
+  // // // 不展示菜单
+  // menuRender: false,
+  // // 不展示菜单顶栏
+  // menuHeaderRender: false,
   // iconfontUrl: '//at.alicdn.com/t/c/font_4120566_x5c4www9bqm.js',
   // splitMenus: true,
   // menu: {

@@ -1,7 +1,7 @@
 export default {
   dev: {
     '/chatsuperapi/': {
-      target: 'http://172.21.42.220:9080', // 'http://127.0.0.1:9080',
+      target: 'http://172.21.42.146:31021', // 'http://172.21.42.220:9080', // 'http://127.0.0.1:9080',
       changeOrigin: true,
     },
   },
